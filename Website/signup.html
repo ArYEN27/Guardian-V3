@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Guardian </title>
+        <link rel="stylesheet" href="signUp.css">
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+                        
+    </head>
+    <body>
+        <section class="container forms">
+          <!-- Log In FORM -->
+            <div class="form login">
+                <div class="form-content">
+                    <header>Login</header>
+                    <form action="/signin" method="POST" id="login-form" onsubmit="logInSubmit()">
+                        <div class="field input-field">
+                            <input name="email_login" type="text" name="email" placeholder="Email" class="input">
+                        </div>
+
+                        <div class="field input-field">
+                            <input name="password_login" type="password" placeholder="Password" class="password">
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+
+                        <div class="form-link">
+                            <a href="#" class="forgot-pass">Forgot password?</a>
+                        </div>
+                        <input type="submit" name="login_submit" value="Login" class="field button-field" id="login_submit">
+                    </form>
+
+                    <div class="form-link">
+                        <span>Don't have an account? <a href="#" class="link signup-link">Signup</a></span><br>
+                    </div> 
+                </div>
+                </div>
+            </div>
+
+            <!-- Signup Form -->
+
+            <div class="form signup">
+                <div class="form-content">
+                    <header>Signup</header>
+                    <form action="/signup" method="post" id="signup-form" onsubmit="signUpSubmit()">
+                        <div class="field input-field">
+                            <input name="name_s" type="text" class="input"placeholder="Username">
+                        </div>
+                        
+                        <div class="field input-field" >
+                            <input name="email_s" type="text" placeholder="Email" class="input">
+                        </div>
+
+                        <div class="field input-field">
+                            <input name="password_s" type="password" placeholder="Password" class="password">
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+                    </div>
+                    <div class="field input-field">
+                        <input name="sec_email_s" type="text" class="input" placeholder="Secondary Email">
+                    </div>
+
+                    <input type="submit" name="signup_submit" value="Sign Up" class="field button-field" id="signup_submit">
+                    </form>
+
+                    <div class="form-link">
+                        <span>Already have an account? <a href="#" class="link login-link">Login</a></span><br>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<script>
+const forms = document.querySelector(".forms");
+const pwShowHide = document.querySelectorAll(".eye-icon");
+const links = document.querySelectorAll(".link");
+const logIn_form= document.getElementById("login-form");
+const signUp_form= document.getElementById('signup-form');
+
+pwShowHide.forEach(eyeIcon => {
+eyeIcon.addEventListener("click", () => {
+  let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
+  
+  pwFields.forEach(password => {
+      if(password.type === "password"){
+          password.type = "text";
+          eyeIcon.classList.replace("bx-hide", "bx-show");
+          return;
+      }
+      password.type = "password";
+      eyeIcon.classList.replace("bx-show", "bx-hide");
+  })
+  
+})
+})      
+
+links.forEach(link => {link.addEventListener("click", e => {
+ e.preventDefault();
+ forms.classList.toggle("show-signup");
+})
+})
+
+const logInSubmit= async()=>{
+    fetch()
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+}
+
+function signUpSubmit(){
+    fetch()
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+
+    /* 
+    1. Check if input is valid
+    2. Send fetch req to server to check details w/ DB or create user
+    3. Alert user about the response from the server
+    */
+    
+}
+
+</script>
+</body>
+</html>
