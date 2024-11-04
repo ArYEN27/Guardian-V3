@@ -1,0 +1,30 @@
+.container {
+    font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+    font-size: 100%;
+    min-width:350px;
+    min-height: 50px;
+    }
+
+.field input{
+    height: 100%;
+    width: 70%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+    outline: none;
+    padding: 0 15px;
+    border: 1px solid#CACACA;
+    margin: auto;
+}
+.field input:focus{
+    border-bottom-width: 2px;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}

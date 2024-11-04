@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #3382E0;
+    background-color: #f99595;
     column-gap: 30px;
 }
 .form{
@@ -78,7 +78,7 @@ form{
 }
 
 #login_submit,#signup_submit{
-    background-color: #3382E0;
+    background-color: red;
     color: #fff;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -105,7 +105,7 @@ form{
     color: #232836;
 }
 .form a{
-    color:#3382E0;
+    color:red;
     text-decoration: none;
 }
 .form-content a:hover{

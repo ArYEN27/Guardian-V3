@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<title>Guardian</title>
+<!-- <script src="https://kit.fontawesome.com/528e669cdf.js" crossorigin="anonymous"></script> -->
+<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="container" id="container">
+    <div class="applock">
+        <input type="checkbox"
+        id="switch"
+        class="checkbox" />
+        
+        <label for="switch"
+        class="togglelock">
+        <span>
+            <img src="/images/lock.png" alt="Lock Icon" height="20px" width="20px"> <img src="/images/unlock.png" alt="Unlock Icon" height="20px" width="20px">
+        </span>
+    </label>
+</div>
+    <header class="heading">
+        <span class="foo" id="authtxt"><I><span id="details">&nbsp<a href="http://127.0.0.1:5000/signin" class="login" >Log In</a>  to start using the extension</span> </I></span>
+        <div class="add-button" id="addbtn">
+            <a href="#"><div class="sub-button tl" title="Analytics" id="t1"></div></a>
+            <a href="location.html"><div class="sub-button tr" title="Psychiatrist nearby" id="tr"></div></a>
+            <a href="#"><div class="sub-button bl" title="Chat bot" id="b1"></div></a>
+            <a href="http://127.0.0.1:5000" target="_blank"><div class="sub-button br" title="To Website" id="br"></div></a>
+        </div>
+    </header>
+    <p class="copyright">
+        &copy; Copyright 2023 by Guardian Inc
+    </p>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
+<!-- &nbsp <a href="#" class="login">Log In</a>  to start using the extension -->
+<!-- "<all_urls>" -->

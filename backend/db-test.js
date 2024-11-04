@@ -15,7 +15,7 @@ async function testInsert() {
     });
 
     // Add history record for this user
-      await History.create({
+    const history=  await History.create({
       userId: user.userId,
       url: 'https://example.com/suicide-help',
       score: 9,
