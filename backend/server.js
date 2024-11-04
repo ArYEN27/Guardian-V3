@@ -1,9 +1,12 @@
-import express from "express"
-import dotenv from "dotenv"
-import { sequelize, initModels, User, History } from "./db_models/index.js"
+import express from "express";
+import dotenv from "dotenv";
+import userRoutes from "./routes/user.route.js";
+import { sequelize, initModels, User, History } from "./db_models/index.js";
 
 const app = express();
 const port = 5000;
+app.use(express.json());
+app.use("/api", userRoutes);
 
 (async () => {
   try {
@@ -15,10 +18,10 @@ const port = 5000;
   }
 })();
 
-app.get('/', (req, res) => {
-    res.send('Refresh works!')
-})
-  
+app.get("/", (req, res) => {
+  res.send("Refresh works!");
+});
+
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-  })
+  console.log(`Example app listening on port ${port}`);
+});
