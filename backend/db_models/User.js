@@ -3,10 +3,9 @@ import { DataTypes } from "sequelize";
 
 const User = sequelize.define("User", {
   userId: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     primaryKey: true,
-    autoIncrement: true,
-    allowNull: false,
+    allowNull: true,
   },
   username: {
     type: DataTypes.STRING,
@@ -31,6 +30,14 @@ const User = sequelize.define("User", {
 },
 {
   timestamps: false,  // Disable createdAt and updatedAt
-});
+  });
+
+User.beforeCreate((user) => {
+  const usernamePart = user.username.substring(0, 5);  // 5 characters of the username
+  const timestamp = new Date().toISOString().replace(/[-:.]/g, "");  // Current date and time, formatted
+  user.userId = `${usernamePart}${timestamp}`;
+  
+  console.log("Generated userId:", user.userId);
+  });
 
 export default User;

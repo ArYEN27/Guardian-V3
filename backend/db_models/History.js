@@ -4,12 +4,12 @@ import User from "./User.js";
 
 const History = sequelize.define("History", {
   sessionID: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     primaryKey: true,
-    defaultValue: DataTypes.NOW,
+    defaultValue: () => new Date().toISOString(),
   },
   userId: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     references: {
       model: User,
       key: "userId",
@@ -22,7 +22,7 @@ const History = sequelize.define("History", {
   },
   score: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
   },
 },
 {
