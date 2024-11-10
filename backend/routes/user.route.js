@@ -3,6 +3,7 @@ import { User, History } from "../db_models/index.js";
 
 const router = express.Router();
 
+
 router.post("/signup", async (req, res) => {
     try {
         const { username, emailId, password, secondaryEmail, appKey } = req.body;
