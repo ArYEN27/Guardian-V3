@@ -27,4 +27,15 @@ async function testInsert() {
   }
 }
 
-testInsert();
+function testEmail(emailId) {
+  User.findOne({ where: { emailId } })
+  .then(users => {
+    console.log(users);
+  })
+  .catch(err => {
+    console.error('Error:', err);
+  });
+}
+
+// testInsert();
+testEmail("johndoe@example.com");
