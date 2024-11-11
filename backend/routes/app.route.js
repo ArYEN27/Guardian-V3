@@ -52,6 +52,28 @@ router.post("/signin", async (req, res) => {
   }
 });
 
+router.post("/reset-pass", async (req, res) => {
+  try {
+    
+    const { emailId, newpass, confirmpass } = req.body;
+    console.log(emailId, newpass, confirmpass);
+    
+    if (newpass !== confirmpass) {
+      return res.status(200).json({ message: "Passwords don't match!" });
+    }
+
+    const currUser = await User.findOne({ where: { emailId: `${emailId}` } });
+    currUser.password = newpass;
+
+    res.json({ message: "Password updated successfully!" });    
+  } catch (err) {
+    console.error('Error updating password', err.message);
+    return res.status(500).json({ message: "Internal server error!" });
+  }
+
+
+});
+
 // Test    
 router.get("/users", async (req, res) => {
     try {
