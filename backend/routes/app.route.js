@@ -64,6 +64,7 @@ router.post("/reset-pass", async (req, res) => {
 
     const currUser = await User.findOne({ where: { emailId: `${emailId}` } });
     currUser.password = newpass;
+    await currUser.save();
 
     res.json({ message: "Password updated successfully!" });    
   } catch (err) {
